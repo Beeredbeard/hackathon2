@@ -7,6 +7,30 @@ const loadData = async () => {
 
     data.forEach((event) => {
 
+        if (event.id !== 6) {
+            return;
+        }
+
+        //Primary Container
+        const featureName = document.querySelector(".main__right__heading");
+        const featureDescription = document.querySelector(".main__right__description");
+        const registration = document.querySelector("#registration"); 
+        const featureDate = document.querySelector(".main__right__date");
+        const featureImage = document.querySelector(".img__left");
+
+        featureImage.src = `${event.image_url}`;
+        featureName.textContent = `${event.name}`;
+        featureDescription.textContent = `${event.description}`;
+        featureDate.textContent = `${event.date}`; 
+
+    });
+
+    data.forEach((event) => {
+
+        if (event.id === 6) {
+        return; 
+        }
+
         //Small container
         const eventDiv = document.createElement('div'); 
         eventDiv.classList.add('smallContainer'); 
@@ -52,15 +76,19 @@ const loadData = async () => {
 
         document.body.appendChild(modalDiv);
 
+        //scope for both buttons below
+        const modalOverlay = document.querySelector('#modalDiv'); 
+
         openButton.addEventListener('click', () => {
             modalDiv.className = 'apiContents';
-            
+            modalOverlay.className = 'modal-overlay';
         });
 
         closeButton.addEventListener('click', () => {
             modalDiv.className = 'apiContents__close';
-        })
-
+            modalOverlay.className = 'apiContents__close';
+        });
+    
     });
 };
 
