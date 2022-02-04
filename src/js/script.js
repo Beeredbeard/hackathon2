@@ -21,7 +21,51 @@ const loadData = async () => {
         featureImage.src = `${event.image_url}`;
         featureName.textContent = `${event.name}`;
         featureDescription.textContent = `${event.description}`;
-        featureDate.textContent = `${event.date}`; 
+        featureDate.textContent = `${event.date}`;  
+
+        const registrationModal = document.createElement('div');
+
+        registrationModal.className = "registration__close";
+        document.body.appendChild(registrationModal);
+
+        //Registration Box
+        const registrationName = document.createElement("input");
+        const registrationSurname = document.createElement("input");
+        const registrationEmail = document.createElement("input");
+        const registrationPhone = document.createElement("input");
+        const registrationSubmit = document.createElement("button");
+        // const registrationCheckbox = document.createElement("checkbox");
+
+        registrationName.placeholder = "Name";
+        registrationSurname.placeholder = "Surname";
+        registrationEmail.placeholder = "Email";
+        registrationPhone.placeholder = "Phone"; 
+        registrationSubmit.innerHTML = "Submit";
+
+        registrationModal.appendChild(registrationName);
+        registrationModal.appendChild(registrationSurname);
+        registrationModal.appendChild(registrationEmail);
+        registrationModal.appendChild(registrationPhone);
+        registrationModal.appendChild(registrationSubmit);
+
+        const regNameValue = registrationName.value;
+        
+
+        const registerButton = document.querySelector("#registration");
+
+        registerButton.addEventListener('click', () => {
+            registrationModal.className = "registration__open";
+        });
+
+        registrationSubmit.addEventListener('click', () => {
+            registrationModal.className = "registration__close";
+        });
+
+        // openButton.addEventListener('click', () => {
+        //     modalDiv.className = 'apiContents';
+        //     modalOverlay.className = 'modal-overlay';
+        // }); 
+    
 
     });
 
