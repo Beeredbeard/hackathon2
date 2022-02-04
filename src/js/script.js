@@ -6,19 +6,63 @@ const loadData = async () => {
     const container = document.querySelector('.second');
 
     data.forEach((event) => {
+
+        //Small container
         const eventDiv = document.createElement('div'); 
         eventDiv.classList.add('smallContainer'); 
-        const button = document.createElement('button');
-        button.classList.add('smallContainerButton');
+        const openButton = document.createElement('button');
+        openButton.classList.add('smallContainerButton');
         const heading = document.createElement('h2');
 
+        //Small container elements
         heading.textContent = `${event.name}`;
-        eventDiv.appendChild(button);
+        eventDiv.appendChild(openButton);
         eventDiv.appendChild(heading);
         container.appendChild(eventDiv);
-        button.innerHTML = "MORE";
-    })
-}
+        openButton.innerHTML = "MORE";
+
+        //Modal Window 
+        const modalDiv = document.createElement('div');
+        modalDiv.classList.add('apiContents__close');
+        const title = document.createElement('h3');
+        title.classList.add('apiContents__h3');
+        const date = document.createElement('span');
+        date.classList.add('apiContents__date');
+        const paragraph = document.createElement('p');
+        paragraph.classList.add('apiContents__paragraph');
+        const image = document.createElement('img');
+        image.classList.add('apiContents__image'); 
+        const closeButton = document.createElement('button');
+        closeButton.classList.add('apiContents__closeButton');
+
+        //Modal Window contents
+        title.textContent = `${event.name}`;
+        date.textContent = `${event.date}`;
+        paragraph.textContent = `${event.description}`;
+        image.src = `${event.image_url}`;
+        closeButton.innerHTML = "CLOSE";
+
+        //Modal Window structure
+        modalDiv.appendChild(title);
+        modalDiv.appendChild(date);
+        modalDiv.appendChild(paragraph);
+        modalDiv.appendChild(image);
+        modalDiv.appendChild(closeButton)
+        console.log(modalDiv);
+
+        document.body.appendChild(modalDiv);
+
+        openButton.addEventListener('click', () => {
+            modalDiv.className = 'apiContents';
+            
+        });
+
+        closeButton.addEventListener('click', () => {
+            modalDiv.className = 'apiContents__close';
+        })
+
+    });
+};
 
 loadData(); 
 

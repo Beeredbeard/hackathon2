@@ -80,3 +80,64 @@ body {
   margin-top: 8em;
   margin-right: 2em;
 }
+
+.apiContents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    border: 2px solid gray;
+    position: fixed;
+    left: 25%; //uhhh just accept this
+    top: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    background-color: rgb(161, 161, 161);
+    box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+}
+
+.apiContents__close {
+    display: none;
+}
+
+.apiContents__image {
+    max-width: 70%;
+}
+
+.apiContents__paragraph {
+    max-width: 60%;
+    text-align: justify;
+}
+
+// Gheorghi 
+.second {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: 'Dongle', sans-serif;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .smallContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin: 10px;
+    background-color: #EAEAEA;
+    text-align: center;
+    border-radius: 10px;
+    width: 30%;
+  }
+
+  .h2 {
+    text-align: center;
+  }
+
+  .smallContainerButton{
+    background-color: rgb(187, 187, 187);
+    border: 2px solid;
+    border-radius: 5px;
+    margin: 10px;
+  }
